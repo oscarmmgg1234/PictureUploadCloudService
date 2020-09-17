@@ -1,0 +1,38 @@
+{% import "bootstrap/wtf.html" as wtf  %}
+{{ session['username'] }}
+{% if session['username'] %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col">
+
+      <h1>Upload an image</h1>
+      <hr>
+
+      <form  method="POST" enctype="multipart/form-data">
+
+        <div class="form-group">
+          <label>Select image</label>
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" name="image" id="image">
+          </div>
+        </div>
+          {{ wtf.form_field(form.name) }}
+        {{ wtf.form_field(form.description) }}
+
+          <div>
+
+          </div>
+        <button type="submit" class="btn btn-primary">Upload</button>
+
+      </form>
+        <form action="logout">
+        <button type="submit">Logout</button>
+
+        </form>
+
+    </div>
+  </div>
+</div>
+{% endblock content %}
+{% endif %}
